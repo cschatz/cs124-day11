@@ -52,6 +52,18 @@ public class MazeAndSudoku {
 	
 	// recursive helper for solveMaze
 	private static boolean findPath(char[][] maze, int r, int c) {
+		// base case: already at solution
+		if (maze[r][c] == 'G')
+			return true;
+		
+		// for every choice C:
+		//   make choice C
+		//   recursively check: is it now solvable?
+		//      if true: return true
+		//   unmake choice C
+		
+		
+		// final step
 		return false;
 	}
 
