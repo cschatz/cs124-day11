@@ -50,7 +50,8 @@ public class MazeAndSudoku {
 		}
     }
 	
-	public static boolean findPath(char[][] maze, int r, int c) {
+	// recursive helper for solveMaze
+	private static boolean findPath(char[][] maze, int r, int c) {
 		return false;
 	}
 
