@@ -58,6 +58,9 @@ public class MazeAndSudoku {
 		if (r == goalR && c == goalC)
 			return true;
 		
+		displayGrid(maze);
+		
+		
 		// Try north
 		if (maze[r-1][c] == ' ') {
 			// Make the choice to go north
@@ -138,16 +141,16 @@ public class MazeAndSudoku {
 
 	static public void main(String[] args) {
 		String[] maze = { 
-				"#####",
-				"# # #",
-				"#   #",
-				"# # #",
-				"# # #",
-				"#####"
+				"######",
+				"# #  #",
+				"# # ##",
+				"# # ##",
+				"#    #",
+				"######"
 		};
 		
 		displayGrid(makeArray(maze));
-		solveMaze(makeArray(maze), 4, 1);
+		solveMaze(makeArray(maze), 1, 4);
 		
 //		
 //		String[] mysudoku = {
