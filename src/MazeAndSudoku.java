@@ -55,17 +55,55 @@ public class MazeAndSudoku {
 	private static boolean mazeHelper(char[][] maze, int goalR, int goalC,
 											int r, int c) {
 		// base case: already at solution
-		if (maze[r][c] == 'G')
+		if (r == goalR && c == goalC)
 			return true;
 		
 		// Try north
-		if (maze[r-1][c] == ' ' || maze[r-1][c] == 'G')
+		if (maze[r-1][c] == ' ') {
+			// Make the choice to go north
+			maze[r-1][c] = 'o';
+			// Check if now solvable, if true, then return true
+			if (mazeHelper(maze, goalR, goalC, r-1, c) == true)
+				return true;
+			// Unmake the choice to go north
+			maze[r-1][c] = ' ';
+		}
 		
-		// for every choice C:
-		//   make choice C
-		//   recursively check: is it now solvable?
-		//      if true: return true
-		//   unmake choice C
+		// Try east
+		if (maze[r][c+1] == ' ') {
+			// Make the choice to go east
+			maze[r][c+1] = 'o';
+			// Check if now solvable, if true, then return true
+			if (mazeHelper(maze, goalR, goalC, r, c+1) == true)
+				return true;
+			// Unmake the choice to go east
+			maze[r][c+1] = ' ';
+		}
+		
+		// Try south
+		if (maze[r+1][c] == ' ') {
+			// Make the choice to go south
+			maze[r+1][c] = 'o';
+			// Check if now solvable, if true, then return true
+			if (mazeHelper(maze, goalR, goalC, r+1, c) == true)
+				return true;
+			// Unmake the choice to go south
+			maze[r+1][c] = ' ';
+		}
+		
+		
+		// Try west
+		if (maze[r][c-1] == ' ') {
+			// Make the choice to go west
+			maze[r][c-1] = 'o';
+			// Check if now solvable, if true, then return true
+			if (mazeHelper(maze, goalR, goalC, r, c-1) == true)
+				return true;
+			// Unmake the choice to go west
+			maze[r][c-1] = ' ';
+		}
+				
+		
 		
 		
 		// final step
