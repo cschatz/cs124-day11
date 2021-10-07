@@ -37,11 +37,12 @@ public class MazeAndSudoku {
 
 	
 	// Do NOT change this method
-	public static void solveMaze(char[][] maze) {
+	public static void solveMaze(char[][] maze, int goalR, int goalC) {
 		System.out.println("Before solving:");
 		displayGrid(maze);
 		System.out.println("");
-		boolean result = mazeHelper(maze, 1, 1);
+		maze[1][1] = 'o';
+		boolean result = mazeHelper(maze, goalR, goalC, 1, 1);
 		if (result) {
 			System.out.println("Solved:");
 			displayGrid(maze);
@@ -51,10 +52,14 @@ public class MazeAndSudoku {
     }
 	
 	// recursive helper for solveMaze
-	private static boolean mazeHelper(char[][] maze, int r, int c) {
+	private static boolean mazeHelper(char[][] maze, int goalR, int goalC,
+											int r, int c) {
 		// base case: already at solution
 		if (maze[r][c] == 'G')
 			return true;
+		
+		// Try north
+		if (maze[r-1][c] == ' ' || maze[r-1][c] == 'G')
 		
 		// for every choice C:
 		//   make choice C
@@ -99,11 +104,12 @@ public class MazeAndSudoku {
 				"# # #",
 				"#   #",
 				"# # #",
-				"#G# #",
+				"# # #",
 				"#####"
 		};
 		
 		displayGrid(makeArray(maze));
+		solveMaze(makeArray(maze), 4, 1);
 		
 //		
 //		String[] mysudoku = {
