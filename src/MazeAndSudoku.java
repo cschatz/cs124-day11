@@ -41,7 +41,7 @@ public class MazeAndSudoku {
 		System.out.println("Before solving:");
 		displayGrid(maze);
 		System.out.println("");
-		boolean result = findPath(maze, 1, 1);
+		boolean result = mazeHelper(maze, 1, 1);
 		if (result) {
 			System.out.println("Solved:");
 			displayGrid(maze);
@@ -51,7 +51,7 @@ public class MazeAndSudoku {
     }
 	
 	// recursive helper for solveMaze
-	private static boolean findPath(char[][] maze, int r, int c) {
+	private static boolean mazeHelper(char[][] maze, int r, int c) {
 		// base case: already at solution
 		if (maze[r][c] == 'G')
 			return true;
@@ -105,13 +105,13 @@ public class MazeAndSudoku {
 		
 		displayGrid(makeArray(maze));
 		
-		
-		String[] mysudoku = {
-				"A...",
-				".B..",
-				"...C",
-				"...."
-		};
-		displaySudoku(makeArray(mysudoku));
+//		
+//		String[] mysudoku = {
+//				"A...",
+//				".B..",
+//				"...C",
+//				"...."
+//		};
+//		displaySudoku(makeArray(mysudoku));
 	}
 }
